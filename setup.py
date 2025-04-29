@@ -56,7 +56,7 @@ except:
 
 
 setup(
-    name='speedtest-cli',
+    name='speedtest-cli3',
     version=find_version('speedtest.py'),
     description=('Command line interface for testing internet bandwidth using '
                  'speedtest.net'),
@@ -64,13 +64,13 @@ setup(
     keywords='speedtest speedtest.net',
     author='Matt Martz',
     author_email='matt@sivel.net',
-    url='https://github.com/sivel/speedtest-cli',
+    url='https://github.com/alexanderwillner/speedtest-cli3',
     license='Apache License, Version 2.0',
     py_modules=['speedtest'],
     entry_points={
         'console_scripts': [
             'speedtest=speedtest:main',
-            'speedtest-cli=speedtest:main'
+            'speedtest-cli3=speedtest:main'
         ]
     },
     classifiers=[
@@ -79,11 +79,6 @@ setup(
         'Environment :: Console',
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.4',
-        'Programming Language :: Python :: 2.5',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.1',
         'Programming Language :: Python :: 3.2',
@@ -95,5 +90,8 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
     ]
 )

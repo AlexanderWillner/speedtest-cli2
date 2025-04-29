@@ -1,26 +1,26 @@
-speedtest-cli
-=============
+speedtest-cli3
+==============
 
 Command line interface for testing internet bandwidth using
 speedtest.net
 
-.. image:: https://img.shields.io/pypi/v/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
+.. image:: https://img.shields.io/pypi/v/speedtest-cli3.svg
+        :target: https://pypi.python.org/pypi/speedtest-cli3/
         :alt: Latest Version
-.. image:: https://img.shields.io/travis/sivel/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
+.. image:: https://img.shields.io/travis/sivel/speedtest-cli3.svg
+        :target: https://pypi.python.org/pypi/speedtest-cli3/
         :alt: Travis
-.. image:: https://img.shields.io/pypi/l/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
+.. image:: https://img.shields.io/pypi/l/speedtest-cli3.svg
+        :target: https://pypi.python.org/pypi/speedtest-cli3/
         :alt: License
 
 Versions
 --------
 
-speedtest-cli works with Python 2.4-3.7
+speedtest-cli3 works with Python 3
 
-.. image:: https://img.shields.io/pypi/pyversions/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
+.. image:: https://img.shields.io/pypi/pyversions/speedtest-cli3.svg
+        :target: https://pypi.python.org/pypi/speedtest-cli3/
         :alt: Versions
 
 Installation
@@ -31,27 +31,27 @@ pip / easy\_install
 
 ::
 
-    pip install speedtest-cli
+    pip install speedtest-cli3
 
 or
 
 ::
 
-    easy_install speedtest-cli
+    easy_install speedtest-cli3
 
 Github
 ~~~~~~
 
 ::
 
-    pip install git+https://github.com/sivel/speedtest-cli.git
+    pip install git+https://github.com/alexanderwillner/speedtest-cli3.git
 
 or
 
 ::
 
-    git clone https://github.com/sivel/speedtest-cli.git
-    cd speedtest-cli
+    git clone https://github.com/alexanderwillner/speedtest-cli3.git
+    cd speedtest-cli3
     python setup.py install
 
 Just download (Like the way it used to be)
@@ -59,23 +59,23 @@ Just download (Like the way it used to be)
 
 ::
 
-    wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
-    chmod +x speedtest-cli
+    wget -O speedtest-cli3 https://raw.githubusercontent.com/alexanderwillner/speedtest-cli3/master/speedtest.py
+    chmod +x speedtest-cli3
 
 or
 
 ::
 
-    curl -Lo speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
-    chmod +x speedtest-cli
+    curl -Lo speedtest-cli3 https://raw.githubusercontent.com/alexanderwillner/speedtest-cli/master/speedtest.py
+    chmod +x speedtest-cli3
 
 Usage
 -----
 
 ::
 
-    $ speedtest-cli -h
-    usage: speedtest-cli [-h] [--no-download] [--no-upload] [--single] [--bytes]
+    $ speedtest-cli3 -h
+    usage: speedtest-cli3 [-h] [--no-download] [--no-upload] [--single] [--bytes]
                          [--share] [--simple] [--csv]
                          [--csv-delimiter CSV_DELIMITER] [--csv-header] [--json]
                          [--list] [--server SERVER] [--exclude EXCLUDE]
@@ -84,7 +84,7 @@ Usage
 
     Command line interface for testing internet bandwidth using speedtest.net.
     --------------------------------------------------------------------------
-    https://github.com/sivel/speedtest-cli
+    https://github.com/alexanderwillner/speedtest-cli3
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -129,7 +129,7 @@ Usage
 Python API
 ----------
 
-See the `wiki <https://github.com/sivel/speedtest-cli/wiki>`_.
+See the `wiki <https://github.com/alexanderwillner/speedtest-cli3/wiki>`_.
 
 
 Inconsistency

@@ -36,7 +36,7 @@ except ImportError:
     gzip = None
     GZIP_BASE = object
 
-__version__ = '2.1.4b1'
+__version__ = '3.0.0-alpha.1'
 
 
 class FakeShutdownEvent(object):
@@ -681,7 +681,7 @@ def build_user_agent():
                                 platform.architecture()[0]),
         'Python/%s' % platform.python_version(),
         '(KHTML, like Gecko)',
-        'speedtest-cli/%s' % __version__
+        'speedtest-cli3/%s' % __version__
     )
     user_agent = ' '.join(ua_tuple)
     printer('User-Agent: %s' % user_agent, debug=True)
@@ -1700,7 +1700,7 @@ def ctrl_c(shutdown_event):
 def version():
     """Print the version"""
 
-    printer('speedtest-cli %s' % __version__)
+    printer('speedtest-cli3 %s' % __version__)
     printer('Python %s' % sys.version.replace('\n', ''))
     sys.exit(0)
 
@@ -1719,7 +1719,7 @@ def parse_args():
         'speedtest.net.\n'
         '------------------------------------------------------------'
         '--------------\n'
-        'https://github.com/sivel/speedtest-cli')
+        'https://github.com/alexanderwillner/speedtest-cli3')
 
     parser = ArgParser(description=description)
     # Give optparse.OptionParser an `add_argument` method for
