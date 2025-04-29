@@ -52,7 +52,8 @@ or
 
     git clone https://github.com/alexanderwillner/speedtest-cli3.git
     cd speedtest-cli3
-    python setup.py install
+    python3 setup.py install
+    speedtest-cli3
 
 Just download (Like the way it used to be)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
