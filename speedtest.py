@@ -1653,32 +1653,51 @@ class Speedtest(object):
         )
         return self.results.upload
 
+    def _is_float(self, value):
+        try:
+            float(value)
+            return True
+        except (ValueError, TypeError):
+            return False
+
     def filter_server(self, key, value):
-        """Filter servers using criteria\n
-        key: country, cc, name (city), host, sponsor, url.\n
-        value: any string
-        """
-        servers = self.get_servers()
-        filteredServer = []
-        closestServer = []
-        for k in servers:
-            if len(servers[k]) > 1:
-                for srv in servers[k]:
-                    if value.lower() in srv[key].lower():
-                        filteredServer.append(srv)
-            else:
-                if value.lower() in servers[k][0][key].lower():
-                    filteredServer.append(servers[k][0])
-        if not filteredServer:
+        """Filter servers by specified key and value."""
+        servers = self.servers
+        filtered_servers = [s for s in servers if value.lower() in s.get(key, "").lower()]
+
+        if not filtered_servers:
             print_('No server available for this criteria')
             sys.exit(0)
-        # get closest server
-        for s in sorted(filteredServer, key=lambda k: float(k['d'])):
-            closestServer.append(s)
-            if len(closestServer) == 5:
-                break
-        return closestServer
 
+        client_lat, client_lon = self.lat_lon
+
+        def server_distance(s):
+            # Use server-provided distance if available and valid
+            d = s.get('d')
+            if d is not None:
+                try:
+                    return float(d)
+                except (ValueError, TypeError):
+                    pass
+            # Fallback: compute haversine distance between client and server
+            try:
+                lat = float(s.get('lat', 0))
+                lon = float(s.get('lon', 0))
+                R = 6371.0
+                dlat = math.radians(lat - client_lat)
+                dlon = math.radians(lon - client_lon)
+                a = (math.sin(dlat/2)**2 +
+                     math.cos(math.radians(client_lat)) *
+                     math.cos(math.radians(lat)) *
+                     math.sin(dlon/2)**2)
+                c = 2 * math.asin(math.sqrt(a))
+                return R * c
+            except Exception:
+                return float('inf')
+
+        closest_servers = sorted(filtered_servers, key=server_distance)[:5]
+
+        return closest_servers
 
 def ctrl_c(shutdown_event):
     """Catch Ctrl-C key sequence and set a SHUTDOWN_EVENT for our threaded
@@ -1907,10 +1926,11 @@ def shell():
         printer('Loading file with servers...', quiet)
         if not os.path.isfile(args.load_servers[0]):
             raise SystemExit('ERROR: Cannot load specified %s file' % args.load_servers)     
-        
+
         file = args.load_servers[0]
     else:
         file = None
+    speedtest.get_servers(load_servers=file)
 
     if args.list:
         try:
